@@ -44,8 +44,9 @@ app.use(express.static("public"));
 //   db.once("open", function(){
 //     console.log ("Mongoose connection successful.");
 //   });
-var MONGODB_URI = process.env.MONGOLAB_ROSE_URI || "mongodb://localhost/week18Scrape";
-
+// var MONGODB_URI = process.env.MONGOLAB_ROSE_URI || "mongodb://localhost/week18Scrape";
+var MONGOLAB_ROSE_URI = process.env.MONGOLAB_ROSE_URI || "mongodb://localhost/week18Scrape";
+// mongoose.connect(MONGOLAB_ROSE_URI);
 mongoose.connect(MONGOLAB_ROSE_URI);
 // Routes
 
