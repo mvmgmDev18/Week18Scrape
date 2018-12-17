@@ -27,8 +27,26 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/week18Scrape", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/week18Scrape", { useNewUrlParser: true });
+// var databaseUri = "mongodb://localhost/week18Scrape";
+//   if (process.env.MONGODB_URI) {
+//     mongoose.connect(process.env.MONGODB_URI);
+//   } else {
+//     mongoose.connect(databaseUri);
+//   }
 
+//   var db = mongoose.connection;
+
+//   db.on("error", function(err){
+//     console.log("Mongoose Error: ", err);
+//   });
+
+//   db.once("open", function(){
+//     console.log ("Mongoose connection successful.");
+//   });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/week18Scrape";
+
+mongoose.connect(MONGODB_URI);
 // Routes
 
 // A GET route for scraping the echoJS website
